@@ -25,3 +25,17 @@ This project modified from [cni macvlan](https://github.com/containernetworking/
 * `mode` (string, optional): one of "bridge", "private", "vepa", "passthru". Defaults to "bridge".
 * `mtu` (integer, optional): explicitly set MTU to the specified value. Defaults to the value chosen by the kernel. The value must be \[0, master's MTU\].
 * `ipam` (dictionary, required): IPAM configuration to be used for this network. For interface only without ip address, create empty dictionary.
+
+## Build and test
+
+```shell script
+# build this project
+go build
+```
+
+The project needs to run test cases with root privileges.
+```shell script
+export PATH=/opt/cni/bin/:$PATH
+go test -ginkgo.v
+```
+
